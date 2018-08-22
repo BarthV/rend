@@ -29,7 +29,7 @@ import (
 const (
 	Version       = "0.0.2 alpha"
 	VersionString = "Memandra " + Version
-	StatString    = "STAT version " + Version
+	StatString    = "version " + Version
 )
 
 // Common metrics used across packages
