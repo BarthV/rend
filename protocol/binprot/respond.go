@@ -258,10 +258,10 @@ func (b BinaryResponder) Version(opaque uint32) error {
 }
 
 func (b BinaryResponder) Stat(opaque uint32) error {
-	if err := writeSuccessResponseHeader(b.writer, OpcodeStat, 7, 0, 7+len(common.StatString), opaque, false); err != nil {
+	if err := writeSuccessResponseHeader(b.writer, OpcodeStat, 7, 0, 7+len(common.Version), opaque, false); err != nil {
 		return err
 	}
-	n, _ := b.writer.WriteString("version" + common.StatString)
+	n, _ := b.writer.WriteString("version" + common.Version)
 	metrics.IncCounterBy(common.MetricBytesWrittenRemote, uint64(n))
 	return b.writer.Flush()
 }
